@@ -39,7 +39,7 @@ def edit_video(id):
     data = {
         "id": id
     }
-    user_data = {
+    user_data = { 
         "id":session['user_id']
     }
     return render_template("edit_video.html", videos=Video.get_one(data) ,user = User.get_by_id(user_data))
@@ -56,9 +56,7 @@ def update_video(id):
         "genre": request.form["genre"],
         "description": request.form["description"],
         "date_made": request.form["date_made"],
-        "id" : id
-    }
-    Video.update(data)
+        "id" : id 
     return redirect('/dashboard')
 
 @app.route('/view/video/<int:id>')
@@ -69,7 +67,7 @@ def show_video(id):
         "id": id
     }
     user_data = {
-        "id": session['user_id']
+        "id": session['user_id']  
     }
     return render_template("show_video.html", videos=Video.get_one(data), user=User.get_by_id(user_data))
 

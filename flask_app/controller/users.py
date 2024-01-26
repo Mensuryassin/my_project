@@ -25,11 +25,11 @@ def register():
     }
     id = User.save(data)
     session['user_id'] = id
-
+   
     return redirect('/dashboard')
 
 @app.route('/login', methods=['POST'])
-def login():
+def login(): 
     user = User.get_by_email(request.form)
     if not User:
         flash("invalid Email", "login")
@@ -52,4 +52,4 @@ def dashboard():
 @app.route('/logout')
 def logout():
     session.clear()                               
-    return redirect('/ ')      
+    return redirect('/ ')       
